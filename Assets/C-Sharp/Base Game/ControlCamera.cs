@@ -6,7 +6,7 @@ public class ControlCamera : MonoBehaviour
 {
 	[SerializeField] Transform Player1 , Player2;
 	[SerializeField] private Transform Bouttom_Left;
-    
+        Vector3 NewPosition;
 
 public Vector3 HafVector(Vector3 a , Vector3 b)
 {
@@ -25,7 +25,12 @@ public Vector3 HafVector(Vector3 a , Vector3 b)
     	{
     		x=x/2;
     	}
-    	Vector3 NewPosition = Vector3.Lerp(new Vector3(transform.position.x , 0 , -1), new Vector3(x , 0 ,-1) , .1f);
+    	NewPosition = Vector3.Lerp(new Vector3(transform.position.x , 0 , -1), new Vector3(x , 0 ,-1) , .1f);
     	transform.position = NewPosition;
+    }
+    //smooth camera movement
+    public void LateUpdate()
+    {
+        transform.position = NewPosition;
     }
 }

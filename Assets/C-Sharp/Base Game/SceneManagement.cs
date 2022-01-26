@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//پیدا کردن چهار گوشه کمرا (استفاده شده)
+//نیاز به تعققیرات
 public class SceneManagement : MonoBehaviour
 {
     public Vector2 cornerCamerMain;

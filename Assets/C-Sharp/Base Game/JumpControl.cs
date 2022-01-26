@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//استفاده نشده در برنامه فعلی
 public class JumpControl : MonoBehaviour
 {
 	protected void OnCollisionExit2D(Collision2D collisionInfo)

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ControlCamera : MonoBehaviour
 {
+	//نگه داشتن پوزیشن های دو کاراکتر
 	[SerializeField] Transform Player1 , Player2;
-	[SerializeField] private Transform Bouttom_Left;
+	//[SerializeField] private Transform Bouttom_Left;
 
+//پیدا کردن وسط دو نقطه (در برنامه استفاده نشده)
 public Vector3 HafVector(Vector3 a , Vector3 b)
 {
 	float x = (a.x + b.x);
@@ -19,6 +21,7 @@ public Vector3 HafVector(Vector3 a , Vector3 b)
 } 
     void Update()
     {
+		//نگه داشتن پوزیشن کمرا بین دو کاراکتر
     	float x = (Player1.position.x + Player2.position.x);
     	if(x != 0)
     	{

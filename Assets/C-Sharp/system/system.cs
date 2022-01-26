@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using Supernova_Server;
 public enum WPlayer : byte {Player1 , Player2};
 public enum MovePlayerLeftAndRite : byte {BlokeLeft , BlokeRite};
 public enum AIState : byte {ezay = 5 , normal = 3 , hard = 1}
 public static class UnityCoustomMethod
 {
+	//تبدیل کد رنگ (هگز دسیمال) به کلاس کالر
 	public static Color HexToRgb(string HexValue)
 	{
 		byte[] ColorRGB = new byte[3];
@@ -29,6 +30,7 @@ public static class UnityCoustomMethod
 	}
 }
 
+// نگه داری نام کلید های کیبورد بازی و انیمشن مربوط
 [System.Serializable]
 public class anmtionControl
 {
@@ -36,6 +38,7 @@ public class anmtionControl
     public string stateName;
 }
 
+// نگه داری اطلاعات مروط به انیمشن ها
 [System.Serializable]
 public class AdvanceRamz
 {
@@ -47,16 +50,18 @@ public class AdvanceRamz
     public float Destanse;
 }
 
+// تشخیص پلیر 1 و 2 در شبکه محلی
 public static class MainPlayer
 {
 	public static WPlayer Mainplayer = WPlayer.Player2;
-	public static CustomServerTCP Server = new CustomServerTCP();
-	public static CustomClientTCP Client = new CustomClientTCP();
+	//public static CustomServerTCP Server = new CustomServerTCP();
+	//public static CustomClientTCP Client = new CustomClientTCP();
 	//------------------------------------------------------------
 	//public static Custom_Server ServerUDP = new Custom_Server();
 	//public static Custom_Server ClientUDP = new Custom_Server();
 }
 
+//متغیر هاس سراسری
 public static class ControlGelobalVarebal
 {
     public static bool EndGame = false;

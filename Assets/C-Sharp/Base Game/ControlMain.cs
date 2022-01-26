@@ -53,14 +53,18 @@ public class ControlMain : MonoBehaviour
     
     void Update()
     {
-    	
+    	//درصورتی که خون یکی از پلیر ها 0 شود اعلام مشود که بازی تمام است
     	if(ControlGelobalVarebal.HelsePlayer1 <= 0f || ControlGelobalVarebal.HelsePlayer2 <= 0f)
     	{
     		ControlGelobalVarebal.EndGame = true;
     	}
+		//همیشه دو پلیر صورتشان به سمت هم باشد
 		ContraolRayCast();
+		//اجرای انیمشن ها و محاسبه ربات
     	ControlAnmiton();
+		//حرکت پلیر به سمت عقب و جلو
     	ControlMove();
+		//جامپ
     	JUMPControl();
     }
     
@@ -143,7 +147,7 @@ public class ControlMain : MonoBehaviour
     		Jump = true;
     	}
     	
-    	if(Jump == true && transform.position.y < 5)
+    	if(Jump == true && transform.position.y < 3)
     		transform.Translate(Vector2.up * JumpForce * Time.deltaTime);
     	else if( ThisNotOnErze == true)
     	{
@@ -250,7 +254,7 @@ public class ControlMain : MonoBehaviour
     	if(stateNameorjnal != "" && chekDestansePlayer() <= DestanseWork && PlayAnmtion == false)
     	{
     		otherPlayerAnimator.SetTrigger(stateNameorjnal);
-    		print(stateNameorjnal);
+    		//print(stateNameorjnal);
     		if(HowPlayer == WPlayer.Player1)
     		{
     			ControlGelobalVarebal.HelsePlayer1 -= damageValue;
@@ -263,19 +267,23 @@ public class ControlMain : MonoBehaviour
     	}
     }
     
+	//گرفتن استیت انیمشن مورد نةر
     private void DamageAndPlayBestAnmiton(string stateName)
     {
     	stateNameorjnal = stateName;
     }
     
+	//گرفتن فاصه دو پلیر
     private float chekDestansePlayer()
     {
     	return Vector2.Distance(transform.position , otherPlayerOrBot.position);
     }
+	//پاک کردن کد ایجاد شده
     public void Cansel_Ramz()
     {
     	ramz = "";
     }
+	//اعلام پایان بازی
     public void SteatAnimtrue()
     {
     	if(ControlGelobalVarebal.EndGame == true)
@@ -290,16 +298,18 @@ public class ControlMain : MonoBehaviour
 			CanMoves = true;
     	}
     }
-	
+	//زمین خوردن پلیره 
 	public void IsDowne()
 	{
 		ISDoneE = true;
 	}
+	//عدم توانایی حرکت پلیر
 	public void CannotMove()
 	{
 		CanMoves = false;
 		PlayAnmtion = true;
 	}
+	//اجازه حرکت پلیر
 	public void CanMove()
 	{
 		CanMoves = true;

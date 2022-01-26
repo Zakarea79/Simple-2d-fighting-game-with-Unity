@@ -58,7 +58,6 @@ public class AI : MonoBehaviour
 	protected void FixedUpdate()
 	{
 		Player2ControlAI.ContraolRayCast();
-		print(Move);
 		if(ControlGelobalVarebal.EndGame == false)
 		if(Move == true)
 	    {

@@ -169,6 +169,7 @@ public class ControlMain : MonoBehaviour
 					ranAnim = false;
 					ramz = "";
 					DamageAndPlayBestAnmiton(elementv.stateNameDameage);
+					//print(elementv.stateNameDameage);
 					damageValue = elementv.damage;
 					Move = elementv.Move;
 					DestanseWork = elementv.Destanse;
@@ -181,6 +182,7 @@ public class ControlMain : MonoBehaviour
 				{
 					anim.SetTrigger(ramz);
 					DamageAndPlayBestAnmiton(elementRamzEmpty.stateNameDameage);
+					//print(elementRamzEmpty.stateNameDameage);
 					damageValue = elementRamzEmpty.damage;
 					Move = elementRamzEmpty.Move;
 					DestanseWork = elementRamzEmpty.Destanse;
@@ -245,10 +247,10 @@ public class ControlMain : MonoBehaviour
     float DestanseWork;
     public void PlayAnmtionDamageOterPlayer()
     {
-    	if(stateNameorjnal != "" && chekDestansePlayer() < DestanseWork && PlayAnmtion == false)
+    	if(stateNameorjnal != "" && chekDestansePlayer() <= DestanseWork && PlayAnmtion == false)
     	{
     		otherPlayerAnimator.SetTrigger(stateNameorjnal);
-    		
+    		print(stateNameorjnal);
     		if(HowPlayer == WPlayer.Player1)
     		{
     			ControlGelobalVarebal.HelsePlayer1 -= damageValue;
@@ -282,8 +284,10 @@ public class ControlMain : MonoBehaviour
     	}
     	else
     	{
+			PlayAnmtion = false;
 	    	ranAnim = true;
 	    	Move = true;
+			CanMoves = true;
     	}
     }
 	
@@ -300,6 +304,7 @@ public class ControlMain : MonoBehaviour
 	{
 		CanMoves = true;
 		PlayAnmtion = false;
+		Move = true;
 	}
     private void KO()
     {

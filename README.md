@@ -1,2 +1,2 @@
-# Lighting-Fighters
- Lighting-Fighters
+# Warrior of Light
+ Warrior of Light

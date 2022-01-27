@@ -733,7 +733,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1: {fileID: 918185082}
   Player2: {fileID: 1354170702}
-  Bouttom_Left: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2118,7 +2117,7 @@ MonoBehaviour:
     Move: 0
     Destanse: 5
   - stateNameZarbeh: uc
-    stateNameDameage: PowerDameag
+    stateNameDameage: Dameag1
     damage: 10
     Move: 0
     Destanse: 5

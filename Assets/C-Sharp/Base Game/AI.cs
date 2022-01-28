@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Aghel 0101
-
 public class AI : MonoBehaviour
 {
 	//کد انمیشن حرکت  جهت ایجاد رمز های ترکیبی 
@@ -13,10 +11,13 @@ public class AI : MonoBehaviour
 	[SerializeField] private ControlMain Player2ControlAI;
 	[SerializeField] private Transform Player1;
 	[SerializeField] private AIState AIstate = AIState.hard;
+
+	private MoveBake BFMove = MoveBake.forward;
     void Start()
     {
 		//اجرای متد ساخت کد برای ربات 
-	    InvokeRepeating("AICustom" , (float)AIstate / 10 , (float)AIstate / 10);
+	    //InvokeRepeating("AICustom" , (float)AIstate / 10 , (float)AIstate / 10);
+		StartCoroutine(AICustom());
 		/*بر اساس متغییر 
 		AIstate
 		*/ 
@@ -36,47 +37,60 @@ public class AI : MonoBehaviour
 		int fiteSelect = Random.Range(0 , fite.Length);
 		Player2ControlAI.anim.SetTrigger("" + fite.ToCharArray()[fiteSelect]);
 	}
-	private void AICustom()
+	private IEnumerator AICustom()
 	{
-		//تصمیم برای بلند شدن 
-		if(Player2ControlAI.ISDoneE == true){Invoke("WakeUp" , Random.Range(1 , (int)AIstate));}
-		//در صورت فاصله مناسب شروع به ساخت کد کند
-		if(Vector2.Distance(transform.position , Player1.position) < 3)
+		while(true)
 		{
-			//تصمیم برای استفاده از qvfhj shni dh \d]dni
-			int CHRSOH = Random.Range(1 , (int)AIstate * 5);
+			//تصمیم برای بلند شدن 
+			if(Player2ControlAI.ISDoneE == true){Invoke("WakeUp" , Random.Range(1 , (int)AIstate));}
+			//در صورت فاصله مناسب شروع به ساخت کد کند
+			if(Vector2.Distance(transform.position , Player1.position) < 3)
+			{
+				//تصمیم برای استفاده از رمز ساده یا ترکیبی
+				int CHRSOH = Random.Range(1 , (int)AIstate * 5);
 
-			if(CHRSOH > (int)AIstate && GanrateCode == true)
-			{
-				//ساخت ربات پیچیده
-				int moveSelect = Random.Range(0 , moveAn.Length);
-				int fiteSelect = Random.Range(0 , fite.Length);
-				/*ارسال کد ساخته شده به اسکریپت 
-				ControlMain
-				متد 
-				AIC*/
-				Player2ControlAI.AIC("" + moveAn.ToCharArray()[moveSelect] + fite.ToCharArray()[fiteSelect]);
+				if(CHRSOH > (int)AIstate && GanrateCode == true)
+				{
+					//ساخت ربات پیچیده
+					int moveSelect = Random.Range(0 , moveAn.Length);
+					int fiteSelect = Random.Range(0 , fite.Length);
+					/*ارسال کد ساخته شده به اسکریپت 
+					ControlMain
+					متد 
+					AIC*/
+					Player2ControlAI.AIC("" + moveAn.ToCharArray()[moveSelect] + fite.ToCharArray()[fiteSelect]);
+				}
+				else if(GanrateCode == true)
+				{
+					//ساخت ضربات ساده
+					int fiteSelect = Random.Range(0 , fite.Length);
+					/*ارسال کد ساخته شده به اسکریپت 
+					ControlMain
+					متد 
+					AIC*/
+					Player2ControlAI.AIC("" + fite.ToCharArray()[fiteSelect]);
+				}
 			}
-			else if(GanrateCode == true)
+			else
 			{
-				//ساخت ضربات ساده
-				int fiteSelect = Random.Range(0 , fite.Length);
-				/*ارسال کد ساخته شده به اسکریپت 
-				ControlMain
-				متد 
-				AIC*/
-				Player2ControlAI.AIC("" + fite.ToCharArray()[fiteSelect]);
-			}
-		}
-		else
-		{
-			//تصمیم برای حرکت به سمت کاراکتر
-			GanrateCode = false;
-			if(Random.Range(1 ,11) > 5)
-			{
-				Move  = true;
+				// تصمیم برای حرکت به سمت کاراکتر یا دور شدن
+				GanrateCode = false;
+				if(Random.Range(1 ,11) > 5)
+				{
+					Move  = true;
+					if(Random.Range(1 , 11) > 5 && Player1.GetComponent<ControlMain>().RanRamz == false)
+					{
+						BFMove = MoveBake.forward;
+					}
+					else if(ControlGelobalVarebal.HelsePlayer2 < 60)
+					{
+						BFMove = MoveBake.bake;
+					}
+				};
 			};
-		};
+			yield return new WaitForSeconds((float)AIstate / 10);
+		}
+		
 	}
 	protected void FixedUpdate()
 	{
@@ -89,8 +103,14 @@ public class AI : MonoBehaviour
 	    {
 			if(Player2ControlAI.Move == true &&Player2ControlAI.CanMoves == true)
 			{
-				
-				transform.position = new Vector2(Mathf.MoveTowards(transform.position.x , Player1.position.x , .1f) , transform.position.y);
+				if(BFMove == MoveBake.forward)
+				{
+					transform.position = new Vector2(Mathf.MoveTowards(transform.position.x , Player1.position.x , .1f) , transform.position.y);
+				}
+				else
+				{
+					transform.position = new Vector2(Mathf.MoveTowards(transform.position.x , -Player1.position.x , .1f) , transform.position.y);
+				}
 				Player2ControlAI.anim.SetBool("walk" , true);
 				if(Player2ControlAI.ISDoneE == true)
 				{

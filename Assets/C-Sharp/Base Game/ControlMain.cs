@@ -36,6 +36,7 @@ public class ControlMain : MonoBehaviour
 	public bool Move = false;
 	private bool ranAnim = true;
 	private string ramz = "";
+	public bool RanRamz = false;
 	public Animator anim;
 	//----------------------------------------------------------------
 	Rigidbody2D rg;
@@ -113,7 +114,6 @@ public class ControlMain : MonoBehaviour
 	    	if(Input.GetKey(left) && Move == true && CanMoves == true)
 	    	{
 	    		transform.Translate(Vector2.left * Time.deltaTime * speed);
-	    		//rg.MovePosition(Vector2.left * Time.deltaTime * speed);
 	    		anim.SetBool("walk" , true);
 				if(ISDoneE == true)
 				{
@@ -124,7 +124,6 @@ public class ControlMain : MonoBehaviour
 	    	else if(Input.GetKey(right) && Move == true == CanMoves == true)
 	    	{
 	    		transform.Translate(Vector2.left * Time.deltaTime * -speed);
-	    		//rg.MovePosition(Vector2.left * Time.deltaTime * -speed);
 	    		anim.SetBool("walk" , true);
 				if(ISDoneE == true)
 				{
@@ -177,6 +176,7 @@ public class ControlMain : MonoBehaviour
 					damageValue = elementv.damage;
 					Move = elementv.Move;
 					DestanseWork = elementv.Destanse;
+					//RanRamz = true;
 					return;
 				}
 			}
@@ -186,11 +186,11 @@ public class ControlMain : MonoBehaviour
 				{
 					anim.SetTrigger(ramz);
 					DamageAndPlayBestAnmiton(elementRamzEmpty.stateNameDameage);
-					//print(elementRamzEmpty.stateNameDameage);
 					damageValue = elementRamzEmpty.damage;
 					Move = elementRamzEmpty.Move;
 					DestanseWork = elementRamzEmpty.Destanse;
 					ranAnim = false;
+					//RanRamz = true;
 					return;
 				}
 				Invoke("Cansel_Ramz" , 1f);
@@ -220,6 +220,7 @@ public class ControlMain : MonoBehaviour
 	    					damageValue = elementv.damage;
 	    					Move = elementv.Move;
 	    					DestanseWork = elementv.Destanse;
+							RanRamz = true;
 	    					return;
 	    				}
 	    			}
@@ -237,6 +238,7 @@ public class ControlMain : MonoBehaviour
 	    					Move = elementRamzEmpty.Move;
 	    					DestanseWork = elementRamzEmpty.Destanse;
 	    					ranAnim = false;
+							RanRamz = true;
 	    					return;
 	    				}
 	    				Invoke("Cansel_Ramz" , 1f);
@@ -251,7 +253,10 @@ public class ControlMain : MonoBehaviour
     float DestanseWork;
     public void PlayAnmtionDamageOterPlayer()
     {
-    	if(stateNameorjnal != "" && chekDestansePlayer() <= DestanseWork && PlayAnmtion == false)
+    	if(stateNameorjnal != ""
+            && chekDestansePlayer() <= DestanseWork
+            && PlayAnmtion == false
+            && otherPlayerAnimator.GetComponent<ControlMain>().ISDoneE == false)
     	{
     		otherPlayerAnimator.SetTrigger(stateNameorjnal);
     		//print(stateNameorjnal);
@@ -292,6 +297,7 @@ public class ControlMain : MonoBehaviour
     	}
     	else
     	{
+			RanRamz = false;
 			PlayAnmtion = false;
 	    	ranAnim = true;
 	    	Move = true;

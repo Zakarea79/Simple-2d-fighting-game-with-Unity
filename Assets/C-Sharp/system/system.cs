@@ -3,6 +3,8 @@ using Supernova_Server;
 public enum WPlayer : byte {Player1 , Player2};
 public enum MovePlayerLeftAndRite : byte {BlokeLeft , BlokeRite};
 public enum AIState : byte {ezay = 5 , normal = 3 , hard = 1}
+
+public enum MoveBake : byte {bake , forward}
 public static class UnityCoustomMethod
 {
 	//تبدیل کد رنگ (هگز دسیمال) به کلاس کالر

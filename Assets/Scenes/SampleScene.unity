@@ -1492,10 +1492,12 @@ MonoBehaviour:
     stateName: d
   - Kay: w
     stateName: u
+  - Kay: a
+    stateName: a
   - Kay: d
     stateName: r
-  - Kay: s
-    stateName: a
+  R: 4
+  L: 5
   Ramzv:
   - stateNameZarbeh: rc
     stateNameDameage: PowerDameag
@@ -1536,6 +1538,7 @@ MonoBehaviour:
   otherPlayerOrBot: {fileID: 1354170702}
   otherPlayerAnimator: {fileID: 1354170700}
   Move: 0
+  RanRamz: 0
   anim: {fileID: 918185080}
   Jump: 0
   ThisNotOnErze: 1
@@ -2105,6 +2108,8 @@ MonoBehaviour:
     stateName: r
   - Kay: j
     stateName: a
+  R: 4
+  L: 5
   Ramzv:
   - stateNameZarbeh: rc
     stateNameDameage: PowerDameag
@@ -2145,6 +2150,7 @@ MonoBehaviour:
   otherPlayerOrBot: {fileID: 918185082}
   otherPlayerAnimator: {fileID: 918185080}
   Move: 0
+  RanRamz: 0
   anim: {fileID: 1354170700}
   Jump: 0
   ThisNotOnErze: 1

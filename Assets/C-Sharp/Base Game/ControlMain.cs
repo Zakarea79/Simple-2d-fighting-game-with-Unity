@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +27,8 @@ public class ControlMain : MonoBehaviour
 	//----------------------------------------------------------------
 	[Header("contrrol Anmtion and  Crsh")]
 	[SerializeField] private anmtionControl[] statinfo;
+	[SerializeField] private int R  = 4 , L = 5;
+	[Space(10)]
 	[SerializeField] private AdvanceRamz[] Ramzv;
 	[SerializeField] private AdvanceRamz[] RamzEmpty;
 	[SerializeField] private Transform otherPlayerOrBot;
@@ -80,6 +82,9 @@ public class ControlMain : MonoBehaviour
 	    		{
 		    		//SelfSpriteRenderer.flipX = false;
     				otherPlayerOrBot.GetComponent<SpriteRenderer>().flipX = true;
+					string temp = statinfo[R].stateName;
+					statinfo[R].stateName = statinfo[L].stateName;
+					statinfo[L].stateName = temp;
 	    		}
 
 			}
@@ -95,6 +100,9 @@ public class ControlMain : MonoBehaviour
 	    		{
     				//SelfSpriteRenderer.flipX = true;
     				otherPlayerOrBot.GetComponent<SpriteRenderer>().flipX = false;
+					string temp = statinfo[R].stateName;
+					statinfo[R].stateName = statinfo[L].stateName;
+					statinfo[L].stateName = temp;
 	    		}
 			}
     	}
@@ -206,7 +214,6 @@ public class ControlMain : MonoBehaviour
 	    	{
 	    		if(Input.GetKeyDown(element.Kay))
 	    		{
-	    			
 	    			ramz += element.stateName;
 	    			
 	    			foreach (var elementv in Ramzv) 

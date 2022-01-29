@@ -61,6 +61,13 @@ public class ControlMain : MonoBehaviour
     	{
     		ControlGelobalVarebal.EndGame = true;
     	}
+		if(Input.GetKeyUp(statinfo[2].Kay) && defa == true)
+		{
+			anim.SetTrigger("cnd");
+			SteatAnimtrue();
+			print("Test");
+			defa = false;
+		}
 		//همیشه دو پلیر صورتشان به سمت هم باشد
 		ContraolRayCast();
 		//اجرای انیمشن ها و محاسبه ربات
@@ -312,10 +319,12 @@ public class ControlMain : MonoBehaviour
 			ISDoneE = false;
     	}
     }
-	//زمین خوردن پلیره 
+	// زمین خوردن پلیره و دفاع
+	private bool defa = false;
 	public void IsDowne()
 	{
 		ISDoneE = true;
+		defa = true;
 	}
 	//عدم توانایی حرکت پلیر
 	public void CannotMove()

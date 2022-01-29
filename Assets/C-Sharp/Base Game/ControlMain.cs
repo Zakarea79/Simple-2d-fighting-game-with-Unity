@@ -309,6 +309,7 @@ public class ControlMain : MonoBehaviour
 	    	ranAnim = true;
 	    	Move = true;
 			CanMoves = true;
+			ISDoneE = false;
     	}
     }
 	//زمین خوردن پلیره 

@@ -1559,7 +1559,7 @@ MonoBehaviour:
   left: 97
   JumpKey: 32
   ThisSide: 0
-  ISDoneE: 1
+  ISDoneE: 0
   CanMoves: 1
   HowPlayer: 1
   statinfo:

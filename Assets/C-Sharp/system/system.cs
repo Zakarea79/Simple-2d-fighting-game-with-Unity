@@ -66,6 +66,7 @@ public static class MainPlayer
 //متغیر هاس سراسری
 public static class ControlGelobalVarebal
 {
+	public static bool StartGame = false;
     public static bool EndGame = false;
     public static float HelsePlayer1 = 200;
     public static float HelsePlayer2 = 200;

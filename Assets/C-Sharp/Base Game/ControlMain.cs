@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ControlMain : MonoBehaviour
 {
@@ -56,6 +54,8 @@ public class ControlMain : MonoBehaviour
     
     void Update()
     {
+		if(ControlGelobalVarebal.StartGame == false)
+			return;
     	//درصورتی که خون یکی از پلیر ها 0 شود اعلام مشود که بازی تمام است
     	if(ControlGelobalVarebal.HelsePlayer1 <= 0f || ControlGelobalVarebal.HelsePlayer2 <= 0f)
     	{

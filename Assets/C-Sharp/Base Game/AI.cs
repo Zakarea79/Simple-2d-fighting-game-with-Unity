@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AI : MonoBehaviour
@@ -41,6 +40,12 @@ public class AI : MonoBehaviour
 	{
 		while(true)
 		{
+			if(ControlGelobalVarebal.StartGame == false)
+			{
+				yield return new WaitForSeconds((float)AIstate / 10);
+				continue;
+			}
+				
 			//تصمیم برای بلند شدن 
 			if(Player2ControlAI.ISDoneE == true){Invoke("WakeUp" , Random.Range(1 , (int)AIstate));}
 			//در صورت فاصله مناسب شروع به ساخت کد کند
@@ -90,10 +95,12 @@ public class AI : MonoBehaviour
 			};
 			yield return new WaitForSeconds((float)AIstate / 10);
 		}
-		
 	}
 	protected void FixedUpdate()
 	{
+		if(ControlGelobalVarebal.StartGame == false)
+			return;
+
 		//اجرای متد کنترل ریکست برای روبه روقرار دادن دو کاراکتر
 		Player2ControlAI.ContraolRayCast();
 

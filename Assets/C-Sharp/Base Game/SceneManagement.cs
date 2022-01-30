@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//پیدا کردن چهار گوشه کمرا (استفاده شده)
+//پیدا کردن چهار گوشه کمرا (استفاده نشده)
 //نیاز به تعققیرات
 public class SceneManagement : MonoBehaviour
 {

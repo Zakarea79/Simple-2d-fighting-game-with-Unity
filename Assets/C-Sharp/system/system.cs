@@ -56,11 +56,11 @@ public class AdvanceRamz
 public static class MainPlayer
 {
 	public static WPlayer Mainplayer = WPlayer.Player2;
-	//public static CustomServerTCP Server = new CustomServerTCP();
-	//public static CustomClientTCP Client = new CustomClientTCP();
+	//public static CustomServerTCP ObjectServer = new CustomServerTCP();
+	//public static CustomClientTCP ObjectClient = new CustomClientTCP();
 	//------------------------------------------------------------
-	//public static Custom_Server ServerUDP = new Custom_Server();
-	//public static Custom_Server ClientUDP = new Custom_Server();
+	public static Custom_Server ObjectServerUDP = new Custom_Server();
+	public static Custom_Server ObjectClientUDP = new Custom_Server();
 }
 
 //متغیر هاس سراسری

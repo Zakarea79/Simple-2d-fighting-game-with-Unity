@@ -15,7 +15,7 @@ namespace Supernova_Server
 			List<string> ipAdress = new List<string>();
 			foreach (var element in Dns.GetHostAddresses(Dns.GetHostName())) 
 			{
-				if(element.AddressFamily == AddressFamily.InterNetwork && element.ToString() != "127.0.0.1")
+				if(element.AddressFamily == AddressFamily.InterNetwork)// && element.ToString() != "127.0.0.1")
 				{
 					ipAdress.Add(element.ToString());
 				}
@@ -29,6 +29,10 @@ namespace Supernova_Server
 		{
 			UDPServer = new UdpClient(port);
 			ipeServer = new IPEndPoint(ip ,0);
+		}
+		public void Server_Stop(int port , IPAddress ip)
+		{
+			UDPServer.Close();
 		}
 		public void ServerSendAndGetData(string Send , out string Get , int byteLength = 255)
 		{

@@ -2146,8 +2146,6 @@ MonoBehaviour:
   btn_nextIp: {fileID: 141191818}
   btn_StartServer: {fileID: 232067801}
   btnConectClitent: {fileID: 1848321312}
-  getServerSata: 
-  getClientSata: 
   Show_Error: {fileID: 1445878239}
 --- !u!4 &1736364788
 Transform:

@@ -55,7 +55,7 @@ public class AdvanceRamz
 // تشخیص پلیر 1 و 2 در شبکه محلی
 public static class MainPlayer
 {
-	public static WPlayer Mainplayer = WPlayer.Player2;
+	public static WPlayer PlayerCS = WPlayer.Player2;
 	//public static CustomServerTCP ObjectServer = new CustomServerTCP();
 	//public static CustomClientTCP ObjectClient = new CustomClientTCP();
 	//------------------------------------------------------------

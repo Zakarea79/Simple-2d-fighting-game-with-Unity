@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Threading;
 using System.Net;
 using Supernova_Server;
+using UnityEngine.SceneManagement;
 using static MainPlayer;
 
 public class Menue : MonoBehaviour
@@ -17,10 +18,9 @@ public class Menue : MonoBehaviour
     private List<string> ListIP = new List<string>();
     int ipCont = 0;
     private Thread ThreadServer;
-
-    [HideInInspector] public string getServerSata , getClientSata;
     [SerializeField] private Text Show_Error;
     private string Error;
+    public string GetText;
     void Start()
     {
         //اضافه کردن ایونت توگل ها
@@ -47,7 +47,8 @@ public class Menue : MonoBehaviour
                 try
                 {
                     ObjectServerUDP.Server_Conected(2500,  IPAddress.Parse(ShowIp.text));
-                    ObjectServerUDP.ServerSendAndGetData("Test" ,  out getServerSata);
+                    ObjectServerUDP.ServerSendAndGetData("test" , out GetText);
+                    PlayerCS = WPlayer.Player1;
                 }
                 catch(System.Exception ex)
                 {
@@ -61,13 +62,13 @@ public class Menue : MonoBehaviour
         //وصل شدن کلاینت به سرور
         btnConectClitent.onClick.AddListener(delegate ()
         {
-            print("Test");
             new Thread(new ThreadStart(()=>
             {
                 try
                 {
                     ObjectClientUDP.Client_Conected(2500 ,IPAddress.Parse(GetIp.text));
-                    ObjectClientUDP.ClientSendAndGetData("Test" ,  out getClientSata);
+                    ObjectClientUDP.ClientSendAndGetData("test" , out GetText);
+                    PlayerCS = WPlayer.Player2;
                 }
                 catch(System.Exception ex)
                 {
@@ -80,9 +81,12 @@ public class Menue : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Show_Error.text = Error;   
+        Show_Error.text = Error;
+        if(GetText == "test")
+        {
+            SceneManager.LoadScene(1);
+        }
     }
-
     private void ChToggle()
     {
         PS.SetActive(Server.isOn);

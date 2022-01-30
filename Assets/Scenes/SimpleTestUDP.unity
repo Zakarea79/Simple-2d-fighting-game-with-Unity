@@ -134,7 +134,6 @@ GameObject:
   m_Component:
   - component: {fileID: 63327496}
   - component: {fileID: 63327495}
-  - component: {fileID: 63327497}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -207,22 +206,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &63327497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63327494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1289bdfeb0e9c1844bbe7861957c08eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ErrorMannger: {fileID: 1620389789}
-  DataGet: 0,0
-  SendData: 0,0
-  OtherPlayer: {fileID: 2106696359}
 --- !u!1 &1347874282
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,9 +544,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2034652165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99efb8d78c360744899fde03da658a31, type: 3}
+  m_Script: {fileID: 11500000, guid: 5276ee87d21320b48a7ecec9740a1fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  send: 
+  Get: 0,0
+  Player1: {fileID: 2106696357}
+  Player2: {fileID: 63327494}
 --- !u!1 &2106696357
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +561,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2106696359}
   - component: {fileID: 2106696358}
-  - component: {fileID: 2106696360}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -647,19 +633,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2106696360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106696357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1289bdfeb0e9c1844bbe7861957c08eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ErrorMannger: {fileID: 1620389789}
-  DataGet: 0,0
-  SendData: 0,0
-  OtherPlayer: {fileID: 63327496}

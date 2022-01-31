@@ -38,12 +38,16 @@ public class ControlMain : MonoBehaviour
 	private string ramz = "";
 	public bool RanRamz = false;
 	public Animator anim;
+	private SimpelUDP sendGetData;
 	//----------------------------------------------------------------
 	Rigidbody2D rg;
 	SpriteRenderer SelfSpriteRenderer;
 	//----------------------------------------------------------------
+	[SerializeField] private bool mPLAYER = false;
     void Start()
     {
+		if(mPLAYER == true)
+			SendGetData = GameObject.Find("Control Scene").GetComponent<SimpelUDP>();
     	rg = GetComponent<Rigidbody2D>();
 		SelfSpriteRenderer = GetComponent<SpriteRenderer>();
     	if(invrse == true)
@@ -76,6 +80,8 @@ public class ControlMain : MonoBehaviour
     	ControlMove();
 		//جامپ
     	JUMPControl();
+
+		SendGetData.Send();
     }
     
 	public void ContraolRayCast()
@@ -229,6 +235,8 @@ public class ControlMain : MonoBehaviour
 	    				{
 	    					anim.SetTrigger(ramz);
 	    					ranAnim = false;
+							SendGetData.Ramz = ramz;
+							//sendGetData.Send();
 	    					ramz = "";
 	    					DamageAndPlayBestAnmiton(elementv.stateNameDameage);
 	    					damageValue = elementv.damage;
@@ -247,6 +255,8 @@ public class ControlMain : MonoBehaviour
 	    				if(elementRamzEmpty.stateNameZarbeh == element.stateName)
 	    				{
 	    					anim.SetTrigger(element.stateName);
+							SendGetData.Ramz = ramz;
+							//sendGetData.Send();
 	    					DamageAndPlayBestAnmiton(elementRamzEmpty.stateNameDameage);
 	    					damageValue = elementRamzEmpty.damage;
 	    					Move = elementRamzEmpty.Move;
@@ -321,7 +331,10 @@ public class ControlMain : MonoBehaviour
     }
 	// زمین خوردن پلیره و دفاع
 	private bool defa = false;
-	public void IsDowne()
+
+    public SimpelUDP SendGetData { get => sendGetData; set => sendGetData = value; }
+
+    public void IsDowne()
 	{
 		ISDoneE = true;
 		defa = true;

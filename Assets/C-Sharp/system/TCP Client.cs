@@ -13,7 +13,7 @@ namespace Supernova_Server
 			sClient.Connect(ipsever);
 		}
 		
-		public void GetData(int byteL , out string DataReseve)
+		public void GetData(out string DataReseve , int byteL = 255)
 		{
 			try 
 			{
@@ -29,7 +29,7 @@ namespace Supernova_Server
 				DataReseve = "";
 			}
 		}
-		public void SendData(int byteL , string Data)
+		public void SendData(string Data , int byteL = 255)
 		{
 			byte[] b = new byte[byteL];
 			b = Encoding.UTF8.GetBytes(Data);

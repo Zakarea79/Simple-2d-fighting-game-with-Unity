@@ -18,7 +18,7 @@ namespace Supernova_Server
 			socClient = SocServer.Accept();
 		}
 		
-		public void GetData(int byteL , out string Data)
+		public void GetData(out string Data , int byteL = 255)
 		{
 			try 
 			{
@@ -38,7 +38,7 @@ namespace Supernova_Server
 				Data = "";
 			}
 		}
-		public void SendData(int byteL , string Data)
+		public void SendData(string Data , int byteL = 255)
 		{
 			byte[] barry = new byte[byteL];
 			barry = Encoding.UTF8.GetBytes(Data);

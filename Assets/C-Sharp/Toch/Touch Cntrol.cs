@@ -8,6 +8,7 @@ public static class ListButtonData
     public static Dictionary<string , bool> Button_Press = new Dictionary<string, bool>();
     public static Dictionary<string , bool> Button_Down = new Dictionary<string, bool>();
     public static Dictionary<string , bool> Button_Up = new Dictionary<string, bool>();
+    public static Dictionary<string , float> Axis = new Dictionary<string, float>();
 }
 
 public static class ZInput
@@ -32,4 +33,8 @@ public static class ZInput
         return Button_Press[key];
     }
 
+    public static float GetAxis(string NameAxis)
+    {
+        return Axis[NameAxis];
+    }
 }

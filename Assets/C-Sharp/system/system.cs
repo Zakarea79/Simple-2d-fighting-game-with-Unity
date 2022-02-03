@@ -5,7 +5,7 @@ public enum MovePlayerLeftAndRite : byte {BlokeLeft , BlokeRite};
 public enum AIState : byte {ezay = 5 , normal = 3 , hard = 1}
 
 public enum MoveBake : byte {bake , forward}
-public static class UnityCoustomMethod
+public static class Supernova
 {
 	//تبدیل کد رنگ (هگز دسیمال) به کلاس کالر
 	public static Color HexToRgb(string HexValue)

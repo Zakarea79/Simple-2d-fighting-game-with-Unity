@@ -10,9 +10,8 @@ public class Joestok : MonoBehaviour
 {
     private EventTrigger Et;
     [SerializeField] private string AxisName_H , AxisName_V;
-    [SerializeField] private Color PressColor = HexToRgb("919191");
-    [SerializeField] private Color normalColor = HexToRgb("FFFFFF");
-    [SerializeField] private Sprite PressButton , UpButton;
+    public Color PressColor = HexToRgb("919191") , normalColor = HexToRgb("FFFFFF");
+    public Sprite PressButton , UpButton;
     public bool BlockX , BlockY; 
     private Image BaseColor;
     
@@ -64,26 +63,15 @@ public class Joestok : MonoBehaviour
         transform.position = data.position;
         float X = Mathf.Clamp(transform.localPosition.x , -80 , 80);
         float Y = Mathf.Clamp(transform.localPosition.y , -80 , 80);
-        transform.localPosition = new Vector2(X , Y);
-        if(BlockX == true)
-        {
-            transform.localPosition = new Vector2(0 , Y);
-        }
-        if(BlockY == true)
-        {
-            transform.localPosition = new Vector2(X , 0);
-        }
-        if(BlockX == true && BlockY == true)
-        {
-            transform.localPosition = new Vector2(0 , 0);
-        }
+        transform.localPosition = new Vector2(BlockX == true ? 0 : X , BlockY == true ? 0 : Y);
+
         if(AxisName_H != "")
-        {
             Axis[AxisName_H] = Mathf.Clamp(transform.localPosition.x , -80f , 80f) / 80;
-        }
+        else
+            Debug.LogError("AxisName_H Equals Null");
         if(AxisName_V != "")
-        {
             Axis[AxisName_V] = Mathf.Clamp(transform.localPosition.y , -80f , 80f) / 80;
-        }
+        else
+            Debug.LogError("AxisName_V Equals Null");
     }
 }

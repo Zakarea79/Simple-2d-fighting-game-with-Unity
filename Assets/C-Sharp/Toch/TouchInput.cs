@@ -8,10 +8,8 @@ public class TouchInput : MonoBehaviour
 {
     private EventTrigger Et;
     [SerializeField] private string Keycode;
-    [SerializeField] private Color PressColor = HexToRgb("919191");
-    [SerializeField] private Color normalColor = HexToRgb("FFFFFF");
-    [SerializeField] private Sprite PressButton , UpButton;
-
+    public Color PressColor = HexToRgb("919191") , normalColor = HexToRgb("FFFFFF");
+    public Sprite PressButton , UpButton;
     private Image BaseColor;
 
     private void Awake() 

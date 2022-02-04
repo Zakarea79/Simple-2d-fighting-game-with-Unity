@@ -65,7 +65,7 @@ public class ControlMain : MonoBehaviour
     	{
     		ControlGelobalVarebal.EndGame = true;
     	}
-		if(Input.GetKeyUp(statinfo[2].Kay) && defa == true)
+		if(ZInput.GetKeyUp(statinfo[2].Kay) && defa == true)
 		{
 			anim.SetTrigger("cnd");
 			SteatAnimtrue();
@@ -80,8 +80,8 @@ public class ControlMain : MonoBehaviour
     	ControlMove();
 		//جامپ
     	JUMPControl();
-
-		SendGetData.Send();
+		if(mPLAYER == true)
+			SendGetData.Send();
     }
     
 	public void ContraolRayCast()
@@ -132,7 +132,7 @@ public class ControlMain : MonoBehaviour
 	    		Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize , chekDestansePlayer() , .1f);
 	    	}
 	    	
-	    	if(Input.GetKey(left) && Move == true && CanMoves == true)
+	    	if(ZInput.GetKeyPress(left) && Move == true && CanMoves == true)
 	    	{
 	    		transform.Translate(Vector2.left * Time.deltaTime * speed);
 	    		anim.SetBool("walk" , true);
@@ -142,7 +142,7 @@ public class ControlMain : MonoBehaviour
 					ISDoneE = false;
 				}
 	    	}
-	    	else if(Input.GetKey(right) && Move == true == CanMoves == true)
+	    	else if(ZInput.GetKeyPress(right) && Move == true == CanMoves == true)
 	    	{
 	    		transform.Translate(Vector2.left * Time.deltaTime * -speed);
 	    		anim.SetBool("walk" , true);
@@ -162,7 +162,7 @@ public class ControlMain : MonoBehaviour
     public bool ThisNotOnErze = false;
     private void JUMPControl()
     {
-    	if(Input.GetKeyDown(JumpKey) && Jump == false)
+    	if(ZInput.GetKeyDown(JumpKey) && Jump == false)
     	{
     		Jump = true;
     	}
@@ -225,7 +225,7 @@ public class ControlMain : MonoBehaviour
     	{
 	    	foreach (var element in statinfo)
 	    	{
-	    		if(Input.GetKeyDown(element.Kay))
+	    		if(ZInput.GetKeyDown(element.Kay))
 	    		{
 	    			ramz += element.stateName;
 	    			
@@ -235,7 +235,8 @@ public class ControlMain : MonoBehaviour
 	    				{
 	    					anim.SetTrigger(ramz);
 	    					ranAnim = false;
-							SendGetData.Ramz = ramz;
+							if(mPLAYER == true)
+								SendGetData.Ramz = ramz;
 							//sendGetData.Send();
 	    					ramz = "";
 	    					DamageAndPlayBestAnmiton(elementv.stateNameDameage);
@@ -255,7 +256,8 @@ public class ControlMain : MonoBehaviour
 	    				if(elementRamzEmpty.stateNameZarbeh == element.stateName)
 	    				{
 	    					anim.SetTrigger(element.stateName);
-							SendGetData.Ramz = ramz;
+							if(mPLAYER == true)
+								SendGetData.Ramz = ramz;
 							//sendGetData.Send();
 	    					DamageAndPlayBestAnmiton(elementRamzEmpty.stateNameDameage);
 	    					damageValue = elementRamzEmpty.damage;

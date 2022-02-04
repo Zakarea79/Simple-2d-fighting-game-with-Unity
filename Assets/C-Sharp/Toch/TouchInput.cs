@@ -8,15 +8,26 @@ public class TouchInput : MonoBehaviour
 {
     private EventTrigger Et;
     [SerializeField] private string Keycode;
+    [SerializeField] private KeyCode XKeyCode;
     public Color PressColor = HexToRgb("919191") , normalColor = HexToRgb("FFFFFF");
     public Sprite PressButton , UpButton;
     private Image BaseColor;
 
     private void Awake() 
     {
-        Button_Down.Add(Keycode , false);   
-        Button_Up.Add(Keycode , false);   
-        Button_Press.Add(Keycode , false);   
+        if(Keycode != "")
+        {
+            Button_Down.Add(Keycode , false);   
+            Button_Up.Add(Keycode , false);   
+            Button_Press.Add(Keycode , false);  
+        }
+        //--------------------------------
+        if(XKeyCode != KeyCode.None)
+        {
+            Button_Down_KeyCode.Add(XKeyCode , false);   
+            Button_Up_KeyCode.Add(XKeyCode , false);   
+            Button_Press_KeyCode.Add(XKeyCode , false);   
+        }
     }
     void Start()
     {
@@ -26,8 +37,16 @@ public class TouchInput : MonoBehaviour
         entryUp.eventID = EventTriggerType.PointerUp;
         entryUp.callback.AddListener((data) => 
         {
-            Button_Up[Keycode] = true;
-            Button_Press[Keycode] = false;
+            if(Keycode != "")
+            {
+                Button_Up[Keycode] = true;
+                Button_Press[Keycode] = false;
+            }
+            if(XKeyCode != KeyCode.None)
+            {
+                Button_Up_KeyCode[XKeyCode] = true;
+                Button_Press_KeyCode[XKeyCode] = false;
+            }
             BaseColor.color = normalColor;
             BaseColor.sprite = UpButton;
         });
@@ -36,8 +55,16 @@ public class TouchInput : MonoBehaviour
         entryDown.eventID = EventTriggerType.PointerDown;
         entryDown.callback.AddListener((data) => 
         {
-            Button_Down[Keycode] = true;
-            Button_Press[Keycode] = true;
+            if(Keycode != "")
+            {
+                Button_Down[Keycode] = true;
+                Button_Press[Keycode] = true;
+            }
+            if(XKeyCode != KeyCode.None)
+            {
+                Button_Down_KeyCode[XKeyCode] = true;
+                Button_Press_KeyCode[XKeyCode] = true;
+            }
             BaseColor.color = PressColor;
             BaseColor.sprite = PressButton;
         });

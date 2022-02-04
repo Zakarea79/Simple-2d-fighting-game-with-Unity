@@ -13,6 +13,7 @@ public class Joestok : MonoBehaviour
     [SerializeField] private Color PressColor = HexToRgb("919191");
     [SerializeField] private Color normalColor = HexToRgb("FFFFFF");
     [SerializeField] private Sprite PressButton , UpButton;
+    public bool BlockX , BlockY; 
     private Image BaseColor;
     
     private void Awake() 
@@ -64,9 +65,25 @@ public class Joestok : MonoBehaviour
         float X = Mathf.Clamp(transform.localPosition.x , -80 , 80);
         float Y = Mathf.Clamp(transform.localPosition.y , -80 , 80);
         transform.localPosition = new Vector2(X , Y);
+        if(BlockX == true)
+        {
+            transform.localPosition = new Vector2(0 , Y);
+        }
+        if(BlockY == true)
+        {
+            transform.localPosition = new Vector2(X , 0);
+        }
+        if(BlockX == true && BlockY == true)
+        {
+            transform.localPosition = new Vector2(0 , 0);
+        }
         if(AxisName_H != "")
-            Axis[AxisName_H] = Vector3.Normalize(transform.localPosition).x;
+        {
+            Axis[AxisName_H] = Mathf.Clamp(transform.localPosition.x , -80f , 80f) / 80;
+        }
         if(AxisName_V != "")
-            Axis[AxisName_V] = Vector3.Normalize(transform.localPosition).y;
+        {
+            Axis[AxisName_V] = Mathf.Clamp(transform.localPosition.y , -80f , 80f) / 80;
+        }
     }
 }

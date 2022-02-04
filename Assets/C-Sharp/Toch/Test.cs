@@ -28,6 +28,6 @@ public class Test : MonoBehaviour
 
         float X = (ZInput.GetAxis("X"));
         float Y = (ZInput.GetAxis("Y"));
-        print($"X : {X} , X : {Y}");
+        print($"X : {X} , Y : {Y}");
     }
 }

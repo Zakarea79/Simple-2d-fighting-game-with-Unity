@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     private GameObject topcanvas;
@@ -29,10 +28,6 @@ public class MainMenu : MonoBehaviour
     {
         topcanvas.SetActive(false);
         SelectFirsButton(firstbtn);
-    }
-    public void Ready(string scenename)
-    {
-        SceneManager.LoadScene(scenename);
     }
     void Update()
     {

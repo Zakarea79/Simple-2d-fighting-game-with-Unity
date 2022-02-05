@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame UDP.unity
     guid: fb7695be4ef71a24e8c4718c97b7837d
-  - enabled: 0
-    path: Assets/Scenes/SimpleTestUDP.unity
-    guid: 318249effbd60a6438a32bc5af754b01
+  - enabled: 1
+    path: Assets/Scenes/MainGame.unity
+    guid: b5eb0a3685c56c24fbdf1f603d977b7b
   m_configObjects: {}

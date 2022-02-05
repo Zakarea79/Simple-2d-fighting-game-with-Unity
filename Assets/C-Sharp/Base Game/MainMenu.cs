@@ -19,6 +19,11 @@ public class MainMenu : MonoBehaviour
         //انتخاب اولین دکمه تا بتوان با دکمه کیبرد انتخاب رو عوض کرد
         firstbtn.Select();
     }
+    public void Quit()
+    {
+        //خارج شدن از بازی
+        Application.Quit();
+    }
     void Update()
     {
         if (topcanvas != null)

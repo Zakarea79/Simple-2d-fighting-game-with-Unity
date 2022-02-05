@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
@@ -28,8 +28,7 @@ public class MainMenu : MonoBehaviour
     public void Back()
     {
         SelectFirsButton(firstbtn);
-        EventSystem.current.currentSelectedGameObject.GetComponent<Animator>().Play("Normal");  
-        topcanvas.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     void Update()
     {

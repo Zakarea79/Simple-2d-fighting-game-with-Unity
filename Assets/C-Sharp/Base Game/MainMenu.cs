@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     private GameObject topcanvas;
+    private GameObject quitcanvas;
     public Button firstbtn;
     public void Click(GameObject canvas)
     {
@@ -19,9 +20,12 @@ public class MainMenu : MonoBehaviour
         //انتخاب اولین دکمه تا بتوان با دکمه کیبرد انتخاب رو عوض کرد
         firstbtn.Select();
     }
+    public void QuitMenu()
+    {
+        quitcanvas.SetActive(true);
+    }
     public void Quit()
     {
-        //خارج شدن از بازی
         Application.Quit();
     }
     void Update()

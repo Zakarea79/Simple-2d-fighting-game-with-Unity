@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
     public void Back()
     {
         topcanvas.SetActive(false);
+        SelectFirsButton(firstbtn);
     }
     void Update()
     {

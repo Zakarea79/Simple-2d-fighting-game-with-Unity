@@ -8972,7 +8972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1303099524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9411,8 +9411,8 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 2044950870}
-    m_SelectOnRight: {fileID: 2044950870}
+    m_SelectOnLeft: {fileID: 1774255254}
+    m_SelectOnRight: {fileID: 1774255254}
   m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 0.2216981, b: 0.2216981, a: 1}
@@ -11602,8 +11602,8 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 2044950870}
-    m_SelectOnRight: {fileID: 2044950870}
+    m_SelectOnLeft: {fileID: 1384448394}
+    m_SelectOnRight: {fileID: 1384448394}
   m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 0.2216981, b: 0.2216981, a: 1}

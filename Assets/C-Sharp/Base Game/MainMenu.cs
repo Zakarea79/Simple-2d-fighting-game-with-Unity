@@ -6,27 +6,27 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     private GameObject topcanvas;
-    private GameObject quitcanvas;
     public Button firstbtn;
-    public void Click(GameObject canvas)
-    {
-        //فعال کردن بخشی که کلیک شده
-        canvas.SetActive(true);
-        //canvas تنظیم بالا ترین
-        topcanvas = canvas;
-    }
     private void Start()
     {
-        //انتخاب اولین دکمه تا بتوان با دکمه کیبرد انتخاب رو عوض کرد
-        firstbtn.Select();
+        SelectFirsButton(firstbtn);
     }
-    public void QuitMenu()
+    public void Click(GameObject canvas)
     {
-        quitcanvas.SetActive(true);
+        canvas.SetActive(true);
+        topcanvas = canvas;
+    }
+    public void SelectFirsButton(Button btn)
+    {
+        btn.Select();
     }
     public void Quit()
     {
         Application.Quit();
+    }
+    public void Back()
+    {
+        topcanvas.SetActive(false);
     }
     void Update()
     {

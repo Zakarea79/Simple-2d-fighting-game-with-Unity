@@ -19,7 +19,10 @@ public class MainMenu : MonoBehaviour
     }
     public void SelectFirsButton(Button btn)
     {
-        btn.Select();
+        if (btn != null)
+        {
+            btn.Select();
+        }
     }
     public void Quit()
     {

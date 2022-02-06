@@ -1,23 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
 public class MainMenu : MonoBehaviour
 {
     private GameObject topcanvas;
     public Button firstbtn;
-    public void Click(GameObject canvas)
-    {
-        //فعال کردن بخشی که کلیک شده
-        canvas.SetActive(true);
-        //canvas تنظیم بالا ترین
-        topcanvas = canvas;
-    }
+
     private void Start()
     {
-        //انتخاب اولین دکمه تا بتوان با دکمه کیبرد انتخاب رو عوض کرد
-        firstbtn.Select();
+        SelectFirsButton(firstbtn);
+    }
+    public void Click(GameObject canvas)
+    {
+        canvas.SetActive(true);
+        topcanvas = canvas;
+    }
+    public void SelectFirsButton(Button btn)
+    {
+        btn.Select();
+    }
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    public void Back()
+    {
+        SelectFirsButton(firstbtn);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     void Update()
     {

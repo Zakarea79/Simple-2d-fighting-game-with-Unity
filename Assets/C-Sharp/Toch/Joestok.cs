@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static ListButtonData;
 using static Supernova;
-
+//Zakarea
 public class Joestok : MonoBehaviour
 {
     private EventTrigger Et;
